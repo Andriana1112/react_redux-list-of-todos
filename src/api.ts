@@ -24,7 +24,7 @@ function get<T>(url: string): Promise<T> {
 export const getTodos = () => get<Todo[]>('/todos');
 
 export const getUser = async (userId: number) => {
-  await wait(1000); // 1 секунда затримки для демонстрації Loader
+  await wait(3000); // 3 секунди затримки для демонстрації Loader
 
   return get<User>(`/users/${userId}`);
 };

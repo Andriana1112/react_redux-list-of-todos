@@ -14,6 +14,7 @@ export const App = () => {
       dispatch(setLoading(true));
       try {
         const todos = await getTodos();
+
         dispatch(setTodos(todos));
       } catch (error) {
         dispatch(setLoading(false));

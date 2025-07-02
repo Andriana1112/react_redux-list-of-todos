@@ -22,7 +22,10 @@ export const todosSlice = createSlice({
       state.items.push(action.payload);
     },
     updateTodo: (state, action: PayloadAction<Todo>) => {
-      const index = state.items.findIndex(todo => todo.id === action.payload.id);
+      const index = state.items.findIndex(
+        todo => todo.id === action.payload.id,
+      );
+
       if (index !== -1) {
         state.items[index] = action.payload;
       }
@@ -32,6 +35,7 @@ export const todosSlice = createSlice({
     },
     toggleTodo: (state, action: PayloadAction<number>) => {
       const todoItem = state.items.find(todo => todo.id === action.payload);
+
       if (todoItem) {
         todoItem.completed = !todoItem.completed;
       }
@@ -39,4 +43,11 @@ export const todosSlice = createSlice({
   },
 });
 
-export const { setTodos, setLoading, addTodo, updateTodo, deleteTodo, toggleTodo } = todosSlice.actions;
+export const {
+  setTodos,
+  setLoading,
+  addTodo,
+  updateTodo,
+  deleteTodo,
+  toggleTodo,
+} = todosSlice.actions;
